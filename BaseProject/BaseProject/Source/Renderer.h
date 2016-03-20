@@ -1,6 +1,6 @@
 #pragma once
 #include "DirectXCalc.h"
-
+#include "VertexLayouts.h"
 class Renderer
 {
 
@@ -24,6 +24,11 @@ class Renderer
 
 	//static cbPerObject thePerObjectData;
 	static ID3D11Buffer *thePerObjectCBuffer;
+	
+	void CreateSwapChain(DXGI_SWAP_CHAIN_DESC&);
+	void CreateTestStar(int * Index, VertexLayout::Test *Star);
+
+	
 
 public:
 	Renderer();

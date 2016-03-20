@@ -148,11 +148,16 @@
     <ClInclude Include="Source\Character.h" />
     <ClInclude Include="Source\DirectXCalc.h" />
     <ClInclude Include="Source\Game.h" />
+    <ClInclude Include="Source\Mesh.h" />
+    <ClInclude Include="Source\PrimaryCameraData.h" />
     <ClInclude Include="Source\PrimaryWindow.h" />
     <ClInclude Include="Source\RenderConext.h" />
     <ClInclude Include="Source\Renderer.h" />
     <ClInclude Include="Source\RenderNode.h" />
     <ClInclude Include="Source\SystemFlags.h" />
+    <ClInclude Include="Source\TestObject.h" />
+    <ClInclude Include="Source\VertexLayouts.h" />
+    <ClInclude Include="Source\VertexStandard.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -160,9 +165,11 @@
     <ClCompile Include="BaseProject.cpp" />
     <ClCompile Include="Source\Character.cpp" />
     <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\Mesh.cpp" />
     <ClCompile Include="Source\RenderConext.cpp" />
     <ClCompile Include="Source\Renderer.cpp" />
     <ClCompile Include="Source\RenderNode.cpp" />
+    <ClCompile Include="Source\TestObject.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
