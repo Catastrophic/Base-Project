@@ -13,33 +13,84 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{71b2a8ef-c137-4de0-bd18-6d1f334eae2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer">
+      <UniqueIdentifier>{540b1ae2-4b8c-4a9b-8e50-91aad914563f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Basic Project">
+      <UniqueIdentifier>{41ccc5ac-3c53-4b64-83fa-9b9e00a76941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{20161dec-2904-41e1-8951-e9f8d386fe78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{0d91a8d5-d15f-4c98-bfe7-245bd6ac563c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="Source\PrimaryWindow.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\RenderConext.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer.h">
+      <Filter>Header Files\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Basic Project</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\Basic Project</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Basic Project</Filter>
     </ClInclude>
     <ClInclude Include="BaseProject.h">
+      <Filter>Header Files\Basic Project</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\RenderNode.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXCalc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\PrimaryWindow.h">
+    <ClInclude Include="Source\Character.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SystemFlags.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Source\RenderConext.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="BaseProject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Basic Project</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Header Files\Basic Project</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\RenderNode.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Character.cpp">
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

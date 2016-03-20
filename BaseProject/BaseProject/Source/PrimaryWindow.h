@@ -6,6 +6,9 @@ HWND *MyWindow;
 namespace WindowSettings
 {
 	bool Fullscreen = false;
+	UINT Height = 0;
+	UINT Width = 0;
+
 }
 
 struct WindowCorners // 0 - MaxScreen Width xy

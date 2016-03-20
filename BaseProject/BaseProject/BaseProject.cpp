@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "BaseProject.h"
+#include "Source\PrimaryWindow.h"
 
 #define MAX_LOADSTRING 100
 
@@ -55,7 +56,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     return (int) msg.wParam;
 }
 
-
+RECT CurrentSize;
+RECT PreviousSize;
 
 //
 //  FUNCTION: MyRegisterClass()
@@ -100,10 +102,25 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   MyWindow = &hWnd;
+
+#if 0  // Getting rid of border for maximize and minimzed Window
+
+   DWORD dwStyle = ::GetWindowLong(hWnd, GWL_STYLE);
+   DWORD dwRemove = WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX;
+   DWORD dwNewStyle = dwStyle & ~dwRemove;
+   ::SetWindowLong(hWnd, GWL_STYLE, dwNewStyle);
+   ::SetWindowPos(hWnd, NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE | SWP_FRAMECHANGED);
+
+#endif // 0
+
    if (!hWnd)
    {
       return FALSE;
    }
+
+   
+   SetData(hWnd, CurrentSize);
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
@@ -177,4 +194,19 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     }
     return (INT_PTR)FALSE;
+}
+
+void SetWindowDimensions(HWND hwnd, WindowCorners & Corners)
+{
+
+	SetData(hwnd, CurrentSize);
+}
+
+void SetData(HWND hwnd, RECT &rect)
+{
+	if (GetWindowRect(hwnd, &rect))
+	{
+		WindowSettings::Width = rect.right - rect.left;
+		WindowSettings::Height = rect.bottom - rect.top;
+	}
 }
