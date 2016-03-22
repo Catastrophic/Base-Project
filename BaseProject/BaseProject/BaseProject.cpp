@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "BaseProject.h"
 #include "Source\PrimaryWindow.h"
+#include "Source\Game.h"
 
 #define MAX_LOADSTRING 100
 
@@ -11,6 +12,7 @@
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
+Game* maingame;
 
 // Forward declarations of functions included in this code module:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -59,6 +61,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 RECT CurrentSize;
 RECT PreviousSize;
 
+void SetData(HWND hwnd, RECT &rect)
+{
+	if (GetWindowRect(hwnd, &rect))
+	{
+		WindowSettings::screenWidth = rect.right - rect.left;
+		WindowSettings::screenHeight = rect.bottom - rect.top;
+	}
+}
+
 //
 //  FUNCTION: MyRegisterClass()
 //
@@ -102,7 +113,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
-   MyWindow = &hWnd;
 
 #if 0  // Getting rid of border for maximize and minimzed Window
 
@@ -124,7 +134,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+   MyWindow = &hWnd;
 
+   maingame = new Game;
    return TRUE;
 }
 
@@ -140,6 +152,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+
     switch (message)
     {
     case WM_COMMAND:
@@ -152,6 +165,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
                 break;
             case IDM_EXIT:
+				maingame->ShutDown();
+				delete maingame;
+
                 DestroyWindow(hWnd);
                 break;
             default:
@@ -202,11 +218,3 @@ void SetWindowDimensions(HWND hwnd, WindowCorners & Corners)
 	SetData(hwnd, CurrentSize);
 }
 
-void SetData(HWND hwnd, RECT &rect)
-{
-	if (GetWindowRect(hwnd, &rect))
-	{
-		WindowSettings::Width = rect.right - rect.left;
-		WindowSettings::Height = rect.bottom - rect.top;
-	}
-}

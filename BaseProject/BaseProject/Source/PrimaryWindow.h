@@ -1,13 +1,12 @@
 #pragma once
-#include "stdafx.h"
 
-HWND *MyWindow;
+static HWND *MyWindow = 0;
 
 namespace WindowSettings
 {
-	bool Fullscreen = false;
-	UINT Height = 0;
-	UINT Width = 0;
+	static bool Fullscreen = false;
+	static UINT screenHeight = 0;
+	static UINT screenWidth = 0;
 
 }
 

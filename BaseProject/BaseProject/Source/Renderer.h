@@ -1,10 +1,31 @@
 #pragma once
 #include "DirectXCalc.h"
 #include "VertexLayouts.h"
+#include "UtilityLoader.h"
 class Renderer
 {
 
 
+	UtilityLoader ShaderLoader;
+
+	//static cbPerObject thePerObjectData;
+
+	void CreateSwapChain(DXGI_SWAP_CHAIN_DESC&);
+	bool CreateDepthBuffer();
+	bool CreateDepthStencil();
+	bool CreateSampleState();
+	bool CreateBasicShaders();
+
+
+	void CreateTestStar(int * Index, VertexLayout::Test *Star);
+
+	ID3D11PixelShader* PixShaderBasic;
+	ID3D11VertexShader* VertShaderBasic;
+
+	void * PixShaderData;
+	void * VertShaderData;
+
+public:
 	static ID3D11Device * theDevicePtr;
 
 	static ID3D11DeviceContext * theContextPtr;
@@ -20,21 +41,18 @@ class Renderer
 
 	static ID3D11DepthStencilView  * theDepthStencilViewPtr;
 
-	static D3D11_VIEWPORT theScreenViewport;
+	static D3D11_VIEWPORT* theScreenViewport;
 
-	//static cbPerObject thePerObjectData;
+	ID3D11SamplerState* TheSamplerState;
+
+
 	static ID3D11Buffer *thePerObjectCBuffer;
-	
-	void CreateSwapChain(DXGI_SWAP_CHAIN_DESC&);
-	void CreateTestStar(int * Index, VertexLayout::Test *Star);
 
-	
-
-public:
 	Renderer();
 	~Renderer();
 	void Initialize();
 	int ShutDown();
+	void Update(float delta);
 
 };
 

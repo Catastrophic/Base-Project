@@ -28,6 +28,15 @@
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{0d91a8d5-d15f-4c98-bfe7-245bd6ac563c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{2430a506-77aa-4beb-8ea2-6b3dc44bff31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders\Vertex">
+      <UniqueIdentifier>{8598e48c-2c48-4bbb-866d-79bc58714421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders\Pixel">
+      <UniqueIdentifier>{3e26511a-4669-4037-8ddd-a68f9a7437ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -84,6 +93,12 @@
     <ClInclude Include="Source\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Shaders\ActiveShaders.h">
+      <Filter>Source Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UtilityLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\RenderConext.cpp">
@@ -113,6 +128,9 @@
     <ClCompile Include="Source\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\UtilityLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BaseProject.rc">
@@ -126,5 +144,13 @@
     <Image Include="BaseProject.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Source\Shaders\TestPixelShader.hlsl">
+      <Filter>Source Files\Shaders\Pixel</Filter>
+    </FxCompile>
+    <FxCompile Include="Source\Shaders\TestVertexShader.hlsl">
+      <Filter>Source Files\Shaders\Vertex</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

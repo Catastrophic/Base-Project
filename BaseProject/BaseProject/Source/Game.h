@@ -5,13 +5,12 @@ class Game
 {
 	
 	Renderer* MainRenderer = nullptr;
-
-	void Initialize();
-	void ShutDown();
-
-
 public:
 	Game();
 	~Game();
+
+
+	void Initialize();
+	void ShutDown();
 };
 
